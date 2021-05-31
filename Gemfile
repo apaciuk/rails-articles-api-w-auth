@@ -18,7 +18,8 @@ gem 'puma', '~> 4.1'
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
-
+# API Admin
+gem 'rails_admin', '~> 2.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
