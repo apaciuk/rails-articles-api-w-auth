@@ -32,4 +32,22 @@ class UsersController < ApplicationController
              status: :unprocessable_entity
     end
   end
+  # DELETE /users/{username}
+  def destroy
+    @user.destroy
+  end
+
+  private
+
+  def find_user
+    @user = User.find_by_username!(params[:_username])
+    rescue ActiveRecord::RecordNotFound
+      render json: { errors: 'User not found' }, status: :not_found
+  end
+
+  def user_params
+    params.permit(
+     :name, :email, :password_digest, :password_confirmation
+    )
+  end
 end
